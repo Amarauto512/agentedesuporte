@@ -1,15 +1,9 @@
-import subprocess
-subprocess.run(["pip", "install", "--upgrade", "google-generativeai==0.3.2"], check=True)
-
 from flask import Flask, request, jsonify
 from datetime import date
 import os
 import warnings
 
 warnings.filterwarnings("ignore")
-
-# Configurar chave da API do Gemini (via variável de ambiente)
-os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 
 from google.generativeai import configure
 configure(api_key=os.environ["GOOGLE_API_KEY"])
@@ -37,8 +31,8 @@ def agente_buscador(topico, data_de_hoje):
     buscador = Agent(
         name="agente_buscador",
         model="gemini-2.0-flash",
-        instruction="""Ajudar o usuário a resolver problemas comuns com soluções simples. 
-Não use termos técnicos complicados. Dê no máximo 4 sugestões e finalize com o link: 
+        instruction="""Ajudar o usuário a resolver problemas comuns com soluções simples.
+Não use termos técnicos complicados. Dê no máximo 4 sugestões e finalize com o link:
 https://centraldeservicos.tce.ap.gov.br/""",
         description="Agente de suporte técnico",
         tools=[google_search]
@@ -59,5 +53,4 @@ def suporte():
     return jsonify({"resposta": resposta.strip()})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 10000)))
-
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 10000)))
