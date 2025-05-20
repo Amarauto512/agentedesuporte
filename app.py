@@ -11,7 +11,6 @@ warnings.filterwarnings("ignore")
 # Configurar chave da API do Gemini (vem da variável de ambiente)
 os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 import subprocess
-subprocess.run(["pip", "install", "--upgrade", "google-generativeai==0.3.2"])
 
 from google.generativeai import configure
 configure(api_key=os.environ["GOOGLE_API_KEY"])
