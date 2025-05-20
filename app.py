@@ -9,7 +9,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # Configurar sua API KEY do Google Gemini
-os.environ["GOOGLE_API_KEY"] = "SUA_CHAVE_AQUI"
+os.environ["GOOGLE_API_KEY"] = "AIzaSyCdT-6p0Z40fWJLO-8d8sq2dJaLTWnH1Kc"
 
 # SDK Gemini
 from google import genai
