@@ -1,4 +1,4 @@
-Flask
+flask
 google-generativeai==0.3.2
-google-adk==0.1.3
+google-adk==0.3.0
 
