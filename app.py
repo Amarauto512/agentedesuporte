@@ -16,10 +16,6 @@ subprocess.run(["pip", "install", "--upgrade", "google-generativeai==0.3.2"])
 from google.generativeai import configure
 configure(api_key=os.environ["GOOGLE_API_KEY"])
 
-
-from google import genai
-genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
-
 from google.adk.agents import Agent
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
