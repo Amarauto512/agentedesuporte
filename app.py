@@ -8,9 +8,8 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-# Configurar chave da API do Gemini (vem da variável de ambiente)
+# Configurar chave da API do Gemini (via variável de ambiente)
 os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
-import subprocess
 
 from google.generativeai import configure
 configure(api_key=os.environ["GOOGLE_API_KEY"])
